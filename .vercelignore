@@ -1,0 +1,18 @@
+# Exclude files that are not needed by the deployed Flask app.
+# Keeps the serverless function bundle small (under Vercel's 500 MB limit).
+
+# Large raw datasets are only used for local training, not at runtime.
+dataset/
+
+# Notebooks and EDA artifacts.
+notebooks/
+
+# Local dev tooling.
+requirements-dev.txt
+
+# Python caches and virtual envs.
+__pycache__/
+**/__pycache__/
+.venv/
+venv/
+*.pyc

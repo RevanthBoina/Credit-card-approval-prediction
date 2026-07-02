@@ -1,0 +1,6 @@
+# Local training / EDA dependencies (not deployed to Vercel).
+# Install with: pip install -r requirements.txt -r requirements-dev.txt
+matplotlib
+seaborn
+openpyxl
+gunicorn

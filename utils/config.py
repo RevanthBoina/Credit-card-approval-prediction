@@ -19,7 +19,11 @@ SCALER_PATH = MODEL_DIR / "scaler.pkl"
 FEATURE_COLUMNS_PATH = MODEL_DIR / "feature_columns.pkl"
 METRICS_PATH = MODEL_DIR / "metrics.json"
 
-STORAGE_DIR = BASE_DIR / "storage"
+# Vercel's serverless filesystem is read-only except for /tmp, so write
+# prediction history there when deployed. Locally we keep it in the repo.
+import os as _os
+
+STORAGE_DIR = Path("/tmp/storage") if _os.getenv("VERCEL") else BASE_DIR / "storage"
 PREDICTION_HISTORY_PATH = STORAGE_DIR / "prediction_history.csv"
 
 RANDOM_STATE = 42
