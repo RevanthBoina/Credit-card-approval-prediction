@@ -1,9 +1,10 @@
-# TODO - Move extracted project files to repo root
+# TODO
 
-- [ ] Verify current layout (confirm only `extracted/` exists at workspace root)
-- [ ] Plan file move strategy: move `extracted/Credit-card-approval-prediction/*` to repo root, then remove `extracted/`
-- [ ] Implement move via shell commands (robust: handle hidden files and directories)
-- [ ] Update/verify any paths if needed (e.g., references to `extracted/`)
-- [ ] Run a quick sanity check: `python -m models.train` (optional) or `python -c "import app"`
-- [ ] Confirm repo shows files directly at root (as user expects in Codespaces/GitHub)
+- [x] Step 1: Create `src/` directory with `__init__.py`, and implement `src/app.py`, `src/model.py`, `src/utils.py` as the new required entrypoints.
+
+- [ ] Step 2: Move code from `extracted/Credit-card-approval-prediction/` into the new layout (templates/static/models/preprocessing/utils/preprocessing/config) and remove `extracted/`.
+- [ ] Step 3: Update all imports so training and Flask use `src` modules.
+- [ ] Step 4: Implement artifact paths to use `saved_models/` and dataset paths to use `data/raw` + `data/processed`.
+- [ ] Step 5: Update `.gitignore`, `README.md`, `Procfile`, and `manifest.yml` for new entrypoints.
+- [ ] Step 6: Run smoke tests: `python -m src.model` and `python -c "from src.app import create_app; app=create_app()"`.
 
