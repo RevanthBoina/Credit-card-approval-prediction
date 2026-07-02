@@ -1,10 +1,10 @@
-# Runtime dependencies for the deployed Flask prediction app.
-# Training/EDA-only packages (matplotlib, seaborn, openpyxl, gunicorn) are
-# intentionally excluded to keep the serverless bundle under Vercel's limit.
-# Install those separately for local training if needed.
+# Runtime dependencies for the deployed Flask prediction app (IBM Cloud).
+# Training/EDA-only packages (matplotlib, seaborn, openpyxl) live in
+# requirements-dev.txt. Install those separately for local training if needed.
 numpy
 pandas
 scikit-learn
 xgboost
 flask
 joblib
+gunicorn

@@ -19,11 +19,13 @@ SCALER_PATH = MODEL_DIR / "scaler.pkl"
 FEATURE_COLUMNS_PATH = MODEL_DIR / "feature_columns.pkl"
 METRICS_PATH = MODEL_DIR / "metrics.json"
 
-# Vercel's serverless filesystem is read-only except for /tmp, so write
-# prediction history there when deployed. Locally we keep it in the repo.
+# Prediction-history storage location. On IBM Cloud (Cloud Foundry / Code
+# Engine) the app filesystem is ephemeral/limited, so an explicit override via
+# the STORAGE_DIR env var is honored first; otherwise it stays in the repo for
+# local runs. Set STORAGE_DIR=/tmp/storage in the deployment environment.
 import os as _os
 
-STORAGE_DIR = Path("/tmp/storage") if _os.getenv("VERCEL") else BASE_DIR / "storage"
+STORAGE_DIR = Path(_os.getenv("STORAGE_DIR", str(BASE_DIR / "storage")))
 PREDICTION_HISTORY_PATH = STORAGE_DIR / "prediction_history.csv"
 
 RANDOM_STATE = 42
