@@ -1,0 +1,478 @@
+:root {
+    --bg: #f5f7fb;
+    --surface: #ffffff;
+    --ink: #172033;
+    --muted: #607089;
+    --line: #dce4ef;
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --accent: #d97706;
+    --danger: #b42318;
+    --success: #15803d;
+    --shadow: 0 18px 45px rgba(23, 32, 51, 0.12);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Inter, Arial, sans-serif;
+    color: var(--ink);
+    background:
+        linear-gradient(135deg, rgba(37, 99, 235, 0.07), rgba(14, 165, 233, 0.08)),
+        var(--bg);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.app-header,
+.app-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 0 clamp(20px, 5vw, 72px);
+}
+
+.app-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    height: 70px;
+    background: #ffffff;
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(220, 228, 239, 0.6);
+    box-shadow: 0 8px 24px rgba(23, 32, 51, 0.08);
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 800;
+    min-width: 0;
+}
+
+.brand-mark {
+    display: inline-grid;
+    width: 38px;
+    height: 38px;
+    place-items: center;
+    color: #fff;
+    border-radius: 10px;
+    background: var(--primary);
+    font-size: 0.88rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 18px;
+}
+
+.nav-links a {
+    position: relative;
+    padding: 8px 0;
+    color: var(--muted);
+    font-weight: 700;
+}
+
+.nav-links a::after {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    content: "";
+    background: var(--primary);
+    transition: width 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.home-shell,
+.form-shell,
+.result-shell {
+    width: min(1160px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: clamp(28px, 5vw, 72px) 0;
+}
+
+.home-panel {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 1fr);
+    gap: clamp(28px, 5vw, 64px);
+    align-items: center;
+    min-height: calc(100vh - 170px);
+}
+
+.eyebrow {
+    margin: 0 0 10px;
+    color: var(--primary-dark);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+h1 {
+    margin: 0;
+    max-width: 760px;
+    font-size: clamp(2.2rem, 5vw, 4.75rem);
+    line-height: 0.98;
+    letter-spacing: 0;
+}
+
+.home-summary {
+    max-width: 650px;
+    color: var(--muted);
+    font-size: 1.12rem;
+    line-height: 1.7;
+}
+
+.primary-action,
+.secondary-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 0 20px;
+    border: 0;
+    border-radius: 12px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.primary-action {
+    color: #fff;
+    background: var(--primary);
+    box-shadow: 0 12px 24px rgba(37, 99, 235, 0.22);
+    transition: transform 0.18s ease, background 0.18s ease;
+}
+
+.primary-action:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.secondary-action {
+    color: var(--ink);
+    background: #e8eef5;
+}
+
+.hero-art {
+    display: grid;
+    justify-items: end;
+}
+
+.credit-visual {
+    display: grid;
+    place-items: center;
+    width: min(100%, 540px);
+    min-height: 390px;
+}
+
+.credit-card-preview {
+    position: relative;
+    width: min(100%, 430px);
+    min-height: 260px;
+    padding: 34px;
+    color: #fff;
+    background:
+        linear-gradient(140deg, rgba(23, 32, 51, 0.94), rgba(37, 99, 235, 0.92)),
+        url("../images/card-texture.png");
+    background-size: cover;
+    border-radius: 18px;
+    box-shadow: 0 28px 54px rgba(23, 32, 51, 0.24);
+}
+
+.chip {
+    display: block;
+    width: 58px;
+    height: 42px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #f4d58d, #d4942a);
+}
+
+.card-line {
+    display: block;
+    width: 48%;
+    height: 12px;
+    margin-top: 24px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.62);
+}
+
+.card-line.wide {
+    width: 78%;
+    margin-top: 54px;
+}
+
+.credit-card-preview strong {
+    position: absolute;
+    right: 30px;
+    bottom: 26px;
+    font-size: 1.8rem;
+    letter-spacing: 0;
+}
+
+.section-heading {
+    margin-bottom: 28px;
+}
+
+.section-heading h1 {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+}
+
+.assessment-form {
+    display: grid;
+    gap: 20px;
+}
+
+fieldset {
+    margin: 0;
+    padding: 22px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--surface);
+    box-shadow: 0 10px 24px rgba(23, 32, 51, 0.06);
+}
+
+legend {
+    padding: 0 10px;
+    font-weight: 800;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(160px, 1fr));
+    gap: 16px;
+}
+
+label {
+    display: grid;
+    gap: 8px;
+    color: var(--muted);
+    font-size: 0.9rem;
+    font-weight: 800;
+}
+
+input,
+select {
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 12px;
+    color: var(--ink);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #fbfcff;
+    font: inherit;
+}
+
+input::placeholder {
+    color: #a8b3c2;
+    opacity: 1;
+}
+
+select:required:invalid {
+    color: #a8b3c2;
+}
+
+select option {
+    color: var(--ink);
+}
+
+select option[disabled] {
+    color: #a8b3c2;
+}
+
+input:focus,
+select:focus {
+    outline: 3px solid rgba(37, 99, 235, 0.18);
+    border-color: var(--primary);
+}
+
+.toggle-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(160px, 1fr));
+    gap: 14px;
+}
+
+.toggle-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 48px;
+    padding: 0 14px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #fbfcff;
+}
+
+.toggle-row input {
+    width: 18px;
+    min-height: 18px;
+}
+
+.form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: flex-end;
+}
+
+.alert {
+    margin-bottom: 18px;
+    padding: 14px 16px;
+    border: 1px solid rgba(180, 35, 24, 0.25);
+    border-radius: 8px;
+    color: var(--danger);
+    background: #fff4f2;
+    font-weight: 800;
+}
+
+.result-shell {
+    display: grid;
+    min-height: calc(100vh - 170px);
+    place-items: center;
+}
+
+.result-panel {
+    width: min(680px, 100%);
+    padding: clamp(28px, 5vw, 48px);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--surface);
+    box-shadow: var(--shadow);
+}
+
+.result-panel h1 {
+    font-size: clamp(2.5rem, 7vw, 5rem);
+}
+
+.result-panel.approved {
+    border-top: 8px solid var(--success);
+}
+
+.result-panel.rejected {
+    border-top: 8px solid var(--danger);
+}
+
+.confidence-meter {
+    height: 12px;
+    margin: 26px 0 10px;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #e8eef5;
+}
+
+.confidence-meter span {
+    display: block;
+    height: 100%;
+    background: var(--primary);
+}
+
+.confidence-text {
+    margin: 0 0 24px;
+    color: var(--muted);
+    font-weight: 800;
+}
+
+.decision-grid,
+.result-actions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 28px;
+}
+
+.result-actions {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+}
+
+.saved-note {
+    margin: 22px 0;
+    color: var(--muted);
+    font-weight: 800;
+}
+
+.empty-state {
+    display: grid;
+    gap: 18px;
+    justify-items: start;
+    padding: 28px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--surface);
+}
+
+.empty-state p {
+    margin: 0;
+    color: var(--muted);
+    font-weight: 800;
+}
+
+.app-footer {
+    color: var(--muted);
+    border-top: 1px solid var(--line);
+    font-size: 0.88rem;
+    font-weight: 700;
+}
+
+@media (max-width: 900px) {
+    .home-panel,
+    .form-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .hero-art {
+        order: -1;
+    }
+}
+
+@media (max-width: 640px) {
+    .app-header,
+    .app-footer {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .home-panel,
+    .form-grid,
+    .toggle-grid,
+    .decision-grid {
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-size: 2.4rem;
+    }
+
+    .brand span:last-child {
+        max-width: 210px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .credit-visual {
+        min-height: 320px;
+    }
+
+    .credit-card-preview {
+        min-height: 220px;
+    }
+}

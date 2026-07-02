@@ -1,0 +1,6 @@
+applications:
+  - name: credit-card-approval-prediction
+    memory: 512M
+    disk_quota: 1G
+    instances: 1
+    command: gunicorn app:app

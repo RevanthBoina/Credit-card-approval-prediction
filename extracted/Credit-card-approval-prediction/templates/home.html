@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Credit Card Eligibility Checker | Home{% endblock %}
+
+{% block content %}
+<section class="home-shell">
+    <div class="home-panel">
+        <div class="home-copy">
+            <h1>Check Your Credit Card Eligibility Instantly</h1>
+            <p class="home-summary">Know before applying. Fast and simple.</p>
+            <a class="primary-action" href="{{ url_for('predict') }}">Check Eligibility</a>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+            <div class="credit-visual">
+                <div class="credit-card-preview">
+                    <span class="chip"></span>
+                    <span class="card-line wide"></span>
+                    <span class="card-line"></span>
+                    <strong>Credit</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

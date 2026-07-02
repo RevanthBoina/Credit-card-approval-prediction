@@ -1,0 +1,151 @@
+{% extends "base.html" %}
+
+{% block title %}Credit Card Eligibility Checker | Check{% endblock %}
+
+{% block content %}
+<section class="form-shell">
+    <div class="section-heading">
+        <p class="eyebrow">Applicant Details</p>
+        <h1>Check Eligibility</h1>
+    </div>
+
+    {% if error %}
+    <div class="alert" role="alert">{{ error }}</div>
+    {% endif %}
+
+    <form class="assessment-form" method="post" action="{{ url_for('predict') }}" autocomplete="off" data-clear-on-load="true">
+        <fieldset>
+            <legend>Personal</legend>
+            <div class="form-grid">
+                <label>
+                    Gender
+                    <select name="CODE_GENDER" required>
+                        <option value="" selected disabled>Select</option>
+                        {% for value in options.CODE_GENDER %}
+                        <option value="{{ value }}">{{ value }}</option>
+                        {% endfor %}
+                    </select>
+                </label>
+                <label>
+                    Age
+                    <input type="number" name="AGE_YEARS" min="18" max="90" step="1" placeholder="Enter value" required>
+                </label>
+                <label>
+                    Children
+                    <input type="number" name="CNT_CHILDREN" min="0" max="20" step="1" placeholder="Enter value" required>
+                </label>
+                <label>
+                    Family Members
+                    <input type="number" name="CNT_FAM_MEMBERS" min="1" max="20" step="1" placeholder="Enter value" required>
+                </label>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Financial</legend>
+            <div class="form-grid">
+                <label>
+                    Annual Income
+                    <input type="number" name="AMT_INCOME_TOTAL" min="0" step="1000" placeholder="Enter value" required>
+                </label>
+                <label>
+                    Income Type
+                    <select name="NAME_INCOME_TYPE" required>
+                        <option value="" selected disabled>Select</option>
+                        {% for value in options.NAME_INCOME_TYPE %}
+                        <option value="{{ value }}">{{ value }}</option>
+                        {% endfor %}
+                    </select>
+                </label>
+                <label>
+                    Education
+                    <select name="NAME_EDUCATION_TYPE" required>
+                        <option value="" selected disabled>Select</option>
+                        {% for value in options.NAME_EDUCATION_TYPE %}
+                        <option value="{{ value }}">{{ value }}</option>
+                        {% endfor %}
+                    </select>
+                </label>
+                <label>
+                    Occupation
+                    <select name="OCCUPATION_TYPE" required>
+                        <option value="" selected disabled>Select</option>
+                        {% for value in options.OCCUPATION_TYPE %}
+                        <option value="{{ value }}">{{ value }}</option>
+                        {% endfor %}
+                    </select>
+                </label>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Housing & Work</legend>
+            <div class="form-grid">
+                <label>
+                    Family Status
+                    <select name="NAME_FAMILY_STATUS" required>
+                        <option value="" selected disabled>Select</option>
+                        {% for value in options.NAME_FAMILY_STATUS %}
+                        <option value="{{ value }}">{{ value }}</option>
+                        {% endfor %}
+                    </select>
+                </label>
+                <label>
+                    Housing Type
+                    <select name="NAME_HOUSING_TYPE" required>
+                        <option value="" selected disabled>Select</option>
+                        {% for value in options.NAME_HOUSING_TYPE %}
+                        <option value="{{ value }}">{{ value }}</option>
+                        {% endfor %}
+                    </select>
+                </label>
+                <label>
+                    Years Employed
+                    <input type="number" name="YEARS_EMPLOYED" min="0" max="60" step="0.1" placeholder="Enter value" required>
+                </label>
+                <label>
+                    Owns Car
+                    <select name="FLAG_OWN_CAR" required>
+                        <option value="" selected disabled>Select</option>
+                        {% for value in options.FLAG_OWN_CAR %}
+                        <option value="{{ value }}">{{ value }}</option>
+                        {% endfor %}
+                    </select>
+                </label>
+                <label>
+                    Owns Realty
+                    <select name="FLAG_OWN_REALTY" required>
+                        <option value="" selected disabled>Select</option>
+                        {% for value in options.FLAG_OWN_REALTY %}
+                        <option value="{{ value }}">{{ value }}</option>
+                        {% endfor %}
+                    </select>
+                </label>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Contact</legend>
+            <div class="toggle-grid">
+                <label class="toggle-row">
+                    <input type="checkbox" name="FLAG_WORK_PHONE" value="1">
+                    <span>Work Phone</span>
+                </label>
+                <label class="toggle-row">
+                    <input type="checkbox" name="FLAG_PHONE" value="1">
+                    <span>Phone</span>
+                </label>
+                <label class="toggle-row">
+                    <input type="checkbox" name="FLAG_EMAIL" value="1">
+                    <span>Email</span>
+                </label>
+            </div>
+        </fieldset>
+
+        <div class="form-actions">
+            <button class="primary-action" type="submit">Check</button>
+            <button class="secondary-action" type="reset">Reset</button>
+        </div>
+    </form>
+</section>
+{% endblock %}

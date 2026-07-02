@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Credit Card Eligibility Checker | Result{% endblock %}
+
+{% block content %}
+<section class="result-shell">
+    <div class="result-panel {{ 'approved' if result.approved else 'rejected' }}">
+        <p class="eyebrow">Decision</p>
+        <h1>{{ result.label }}</h1>
+        {% if result.confidence_percent is not none %}
+        <div class="confidence-meter" aria-label="Approval probability">
+            <span style="width: {{ result.confidence_percent }}%"></span>
+        </div>
+        <p class="confidence-text">{{ result.confidence_percent }}% approval probability.</p>
+        {% endif %}
+        <p class="saved-note">Record saved.</p>
+        <div class="result-actions">
+            <a class="primary-action" href="{{ url_for('predict') }}">Check Again</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

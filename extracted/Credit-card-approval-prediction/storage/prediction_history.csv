@@ -1,0 +1,6 @@
+timestamp_utc,prediction_label,approved,approval_probability,confidence_percent,AGE_YEARS,NAME_FAMILY_STATUS,CNT_CHILDREN,FLAG_WORK_PHONE,FLAG_OWN_CAR,NAME_INCOME_TYPE,OCCUPATION_TYPE,AMT_INCOME_TOTAL,FLAG_PHONE,FLAG_EMAIL,CODE_GENDER,NAME_HOUSING_TYPE,FLAG_OWN_REALTY,CNT_FAM_MEMBERS,NAME_EDUCATION_TYPE,YEARS_EMPLOYED
+2026-07-01T13:58:36+00:00,Approved,True,0.6894905065492595,68.95,35,Married,0,1,N,Working,Core staff,180000,1,0,F,House / apartment,Y,2,Higher education,5
+2026-07-01T15:45:49+00:00,Approved,True,0.8150822769688046,81.51,24,Single / not married,0,0,Y,Working,Private service staff,520000,1,0,F,With parents,Y,2,Secondary / secondary special,5
+2026-07-01T16:31:52+00:00,Approved,True,0.761897938869636,76.19,45,Married,2,1,Y,Working,HR staff,589000,1,1,F,House / apartment,Y,3,Incomplete higher,6
+2026-07-01T16:33:39+00:00,Approved,True,0.647997484225296,64.8,53,Married,4,1,N,Working,Cleaning staff,238000,1,1,M,With parents,Y,6,Lower secondary,20
+2026-07-01T16:34:42+00:00,Approved,True,0.618420752465826,61.84,54,Married,9,0,N,Pensioner,Laborers,10000,1,0,M,With parents,N,10,Lower secondary,2
